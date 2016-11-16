@@ -1,0 +1,25 @@
+{
+  "name": "littledemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "''",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add": "git add .",
+    "commit": "git commit -m ",
+    "hadCommit": "git commit -m '来自kimz爸爸的爱'",
+    "push": "git push",
+    "go": "npm run add && npm run hadCommit && npm run push",
+    "confirm": "npm run add && npm run commit -- "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimZLeung/LittleDemo.git"
+  },
+  "author": "kimz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimZLeung/LittleDemo/issues"
+  },
+  "homepage": "https://github.com/kimZLeung/LittleDemo#readme"
+}
