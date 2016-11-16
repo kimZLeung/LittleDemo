@@ -1,0 +1,53 @@
+.text {
+	font-size: 2em;
+	padding-left: 10px;
+}
+
+.addBtn {
+	font-size: 2em;
+	color: white;
+	background-color: #1197a4;
+	margin-left: 10px;
+	padding: 10px;
+}
+
+.todoContainer {
+
+}
+
+.item {
+	font-size: 2em; 
+}
+
+.comItem {
+	font-size: 2em;
+	text-decoration: line-through;
+}
+
+.list {
+	list-style: none;
+}
+
+.bar {
+	font-size: 1em;
+	margin-top: 100px;
+}
+
+.actBtn {
+	color: white;
+	background-color: #1197a4;
+	padding: 10px;
+	border-radius: 10%;
+	transition: all .3s;
+	text-decoration: none;
+	cursor: default;
+}
+
+.urlBtn {
+	color: #1197a4;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10%;
+	transition: all .3s;
+	text-decoration: none;
+}
