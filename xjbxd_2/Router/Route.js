@@ -12,7 +12,7 @@ const TodoApp = React.createClass({
 		return (
 			<div>
 				<Input></Input>
-				{this.props.children || <div />}
+				<div id='list'>{this.props.children}</div>
 				<Bar></Bar>
 			</div>
 		);
@@ -31,3 +31,29 @@ export default () => {
 		</Router>
 	), document.getElementById('app'))
 }
+
+function renderAll() {
+	render((
+		<ALL></ALL>
+	), document.getElementById('list'))
+}
+
+function renderACTIVE() {
+	render((
+		<ACTIVE></ACTIVE>
+	), document.getElementById('list'))
+}
+
+function renderCOM() {
+	render((
+		<COM></COM>
+	), document.getElementById('list'))
+}
+
+function renderList() {
+	renderAll();
+	renderACTIVE();
+	renderCOM();
+}
+
+export { renderList };

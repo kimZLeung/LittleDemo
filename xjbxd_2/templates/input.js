@@ -1,6 +1,8 @@
 import style from '../css/style.css';
-
+import store from '../store/store.js';
 import React from 'react';
+
+var index = 1;
 
 const Bar = React.createClass({
 	render() {
