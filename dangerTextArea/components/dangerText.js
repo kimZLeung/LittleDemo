@@ -8,17 +8,14 @@ export default class DangerText extends React.Component {
 	}
 
 	handleD() {
-		if(this.timeout) {
-			clearTimeout(this.timeout);
-		}
-		this.timeout = setTimeout(() => {
-			this.input.value = '';
-		}, 3000)
+		// console.log(this.input);
+		this.props.handleDown(this.input)
 	}
 
 	render() {
 		return (
 			<div>
+				<Time></Time>
 				<h1 className='title'>Pure Text</h1>
 				<textarea onKeyUp = { this.handleD } ref = {(text) => {this.input = text}} className='dangerText'></textarea>
 			</div>
