@@ -15,7 +15,6 @@ export default class DangerText extends React.Component {
 	render() {
 		return (
 			<div>
-				<Time></Time>
 				<h1 className='title'>Pure Text</h1>
 				<textarea onKeyUp = { this.handleD } ref = {(text) => {this.input = text}} className='dangerText'></textarea>
 			</div>

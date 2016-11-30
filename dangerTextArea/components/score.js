@@ -6,10 +6,12 @@ export default class Score extends React.Component {
     // TODO
   }
 
+
   render() {
+    const { bang, score } = this.props
     return (
       <div className='score'>
-        <h2 className={ this.props.bang?'big':'small' }>{ this.props.score }</h2>
+        <h2 className={ bang?'big':'small' }>{ score }</h2>
       </div>
     )
   }

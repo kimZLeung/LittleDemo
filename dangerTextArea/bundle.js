@@ -21525,7 +21525,8 @@
 
 	    _this.state = {
 	      score: 0,
-	      bang: false
+	      bang: false,
+	      time: false
 	    };
 	    _this.handleKeyDown = _this.handleKeyDown.bind(_this);
 	    return _this;
@@ -21540,19 +21541,21 @@
 	        clearTimeout(this.timeout);
 	        // console.log(this.state);
 	        var curNum = this.state.score;
+	        var time = this.state.time;
 	        // this.clearTime(timeSet);
 	        // console.log(this.state.score)
 	        if (this.state.score >= 50) {
 	          // curNum = this.state.score
-	          console.log(this.score);
 	          this.setState({
 	            score: ++curNum,
-	            bang: true
+	            bang: true,
+	            time: true
 	          });
 	        } else {
 	          this.setState({
 	            score: ++curNum,
-	            bang: false
+	            bang: false,
+	            time: true
 	          });
 	        }
 	      }
@@ -21560,7 +21563,8 @@
 	        text.value = '';
 	        _this2.setState({
 	          score: 0,
-	          bang: false
+	          bang: false,
+	          time: false
 	        });
 	      }, this.props.time);
 	    }
@@ -21576,6 +21580,7 @@
 	        'div',
 	        { id: 'app' },
 	        _react2.default.createElement(_score2.default, { score: this.state.score, bang: this.state.bang }),
+	        _react2.default.createElement(_restTime2.default, { title: this.state.time }),
 	        _react2.default.createElement(_dangerText2.default, { handleDown: this.handleKeyDown })
 	      );
 	    }
@@ -21616,40 +21621,71 @@
 	  function Time() {
 	    _classCallCheck(this, Time);
 
-	    return _possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).call(this));
 	    // TODO
-	    // this.timeSet = this.timeSet.bind(this)
-	    // this.clear = this.clear.bind(this)
+	    var _this = _possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).call(this));
+
+	    _this.timeSet = _this.timeSet.bind(_this);
+	    _this.clear = _this.clear.bind(_this);
+	    return _this;
 	  }
 
-	  // timeSet(num) {
-	  //   this.refs.heihei.style = { left: num/60+''; right: num/60+'' }
-	  //   if(num<3000) {
-	  //     this.timeout = setTimeout(function() {
-	  //       timeSet(num + 100)
-	  //     }, 100)
-	  //   } else {
-	  //     //
-	  //   }
-	  // }
-	  //
-	  // clear() {
-	  //   // clearTimeout(this.timeout);
-	  //   this.props.move(this.timeout, this.refs.heihei.style)
-	  //   this.refs.heihei.style = { left: '1%'; right: '1%' }
-	  // }
-
-	  // componentDidMount() {
-	  //   this.timeSet(0);
-	  // }
-
 	  _createClass(Time, [{
+	    key: 'timeSet',
+	    value: function timeSet(num) {
+	      var self = this;
+	      console.log(this.time.style);
+	      if (this.timeout) {
+	        clearTimeout(this.timeout);
+	      }
+	      if (num < 3000) {
+	        this.timeout = setTimeout(function () {
+	          self.time.style.left = num / 60 + '%';
+	          self.time.style.right = num / 60 + '%';
+	          self.time.style.backgroundColor = '#' + num / 2;
+	          self.timeSet(num + 50);
+	        }, 50);
+	      } else {
+	        //
+	      }
+	    }
+	  }, {
+	    key: 'clear',
+	    value: function clear() {
+	      if (this.timeout) {
+	        clearTimeout(this.timeout);
+	      }
+	      this.time.style = { left: '1%', right: '1%' };
+	      this.time.style.backgroundColor = 'black';
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate(nextP, nextS) {
+	      var style = this.time.style;
+	      if (!nextP.title) {
+	        // this.time.style.right = '1%'\
+	        this.clear();
+	        style.display = 'none';
+	      } else {
+	        // if(!this.started) {
+	        this.timeSet(0);
+	        style.display = 'inline-block';
+	        // } else {
+	        //   this.clear()
+	        // }
+	      }
+	      // console.log(this.time)
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'all' },
-	        _react2.default.createElement('div', { className: 'process', refs: 'heihei' })
+	        _react2.default.createElement('div', { className: 'process', ref: function ref(time) {
+	            _this2.time = time;
+	          } })
 	      );
 	    }
 	  }]);
@@ -21696,13 +21732,17 @@
 	  _createClass(Score, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props,
+	          bang = _props.bang,
+	          score = _props.score;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'score' },
 	        _react2.default.createElement(
 	          'h2',
-	          { className: this.props.bang ? 'big' : 'small' },
-	          this.props.score
+	          { className: bang ? 'big' : 'small' },
+	          score
 	        )
 	      );
 	    }
@@ -21764,7 +21804,6 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(Time, null),
 					_react2.default.createElement(
 						'h1',
 						{ className: 'title' },

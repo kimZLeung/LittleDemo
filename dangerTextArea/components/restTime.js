@@ -4,35 +4,50 @@ export default class Time extends React.Component {
   constructor() {
     super();
     // TODO
-    // this.timeSet = this.timeSet.bind(this)
-    // this.clear = this.clear.bind(this)
+    this.timeSet = this.timeSet.bind(this)
+    this.clear = this.clear.bind(this)
   }
 
-  // timeSet(num) {
-  //   this.refs.heihei.style = { left: num/60+''; right: num/60+'' }
-  //   if(num<3000) {
-  //     this.timeout = setTimeout(function() {
-  //       timeSet(num + 100)
-  //     }, 100)
-  //   } else {
-  //     //
-  //   }
-  // }
-  //
-  // clear() {
-  //   // clearTimeout(this.timeout);
-  //   this.props.move(this.timeout, this.refs.heihei.style)
-  //   this.refs.heihei.style = { left: '1%'; right: '1%' }
-  // }
+  timeSet(num) {
+    var self = this
+    // console.log(this.time.style)
+    if(this.timeout) {
+      clearTimeout(this.timeout)
+    }
+    if(num<3000) {
+      this.timeout = setTimeout(function() {
+        self.time.style.left = (num/60)+'%'
+        self.time.style.right = (num/60)+'%'
+        self.time.style.backgroundColor = '#'+num/2
+        self.timeSet(num + 50)
+      }, 50)
+    }
+  }
 
-  // componentDidMount() {
-  //   this.timeSet(0);
-  // }
+  clear() {
+    if(this.timeout) {
+      clearTimeout(this.timeout)
+    }
+    this.time.style = { left: '1%', right: '1%' }
+    this.time.style.backgroundColor = 'black'
+  }
+
+  componentWillUpdate(nextP, nextS) {
+    const style = this.time.style
+    if(!nextP.title) {
+      this.clear()
+      style.display = 'none'
+    } else {
+      this.timeSet(0)
+      style.display = 'inline-block'
+    }
+    // console.log(this.time)
+  }
 
   render() {
     return (
       <div className='all'>
-        <div className='process' refs="heihei"></div>
+        <div className='process' ref = {(time) => {this.time = time}} ></div>
       </div>
     )
   }
