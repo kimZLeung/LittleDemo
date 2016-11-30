@@ -1,7 +1,7 @@
 import React from 'react';
 import Time from '../components/restTime';
 import Score from '../components/score';
-import DangerText from '../components/dangerText';
+import DangerText from '../components/dangerText.js';
 
 
 export default class App extends React.Component {
@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       score: 0,
       bang: false,
-      time: false,
+      time: false
     }
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }

@@ -1,66 +1,55 @@
 .dangerText {
-	width: 60%;
-	margin: 10px 15%;
-	height: 600px;
-	resize: none;
-	font-size: 2em;
-	border: dashed;
-	border-color: transparent;
-	outline: none;
-	padding: 10px 100px;
-	overflow-y: auto;
-}
-
-.dangerText:hover {
-	border-radius: 10%;
-	border: dashed;
-}
+  width: 60%;
+  margin: 10px 15%;
+  height: 600px;
+  resize: none;
+  font-size: 2em;
+  border: dashed;
+  border-color: transparent;
+  outline: none;
+  padding: 10px 100px;
+  overflow-y: auto; }
+  .dangerText:hover {
+    border-radius: 10%;
+    border: dashed; }
 
 .title {
-	color: #9c2323;
-	text-align: center;
-	background-color: transparent
-}
+  color: #9c2323;
+  text-align: center;
+  background-color: transparent; }
 
 .big {
-	/*transform: scale(2);*/
-	position: absolute;
-	color: red;
-	font-size: 3em;
-	right: 5%;
-}
+  /*transform: scale(2);*/
+  position: absolute;
+  color: red;
+  font-size: 3em;
+  right: 5%; }
 
 .small {
-	/*transform: scale(1);*/
-	color: black;
-	font-size: 3em;
-	position: absolute;
-	right: 5%;
-}
+  /*transform: scale(1);*/
+  color: black;
+  position: absolute;
+  font-size: 3em;
+  right: 5%; }
 
 .all {
-	border: 0px dashed black;
-	padding: 1px;
-	width: 6%;
-	height: 10px;
-	display: inline-block;
-	position: absolute;
-	right: 3%;
-	top: 120px;
-}
+  border: 0px dashed black;
+  padding: 1px;
+  width: 6%;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+  right: 3%;
+  top: 120px; }
 
 .process {
-	background-color: black;
-	position: absolute;
-	top: 10%;
-	bottom: 10%;
-	left: 1%;
-	right: 1%;
-	display: none;
-	/*animation: go 3s infinite;*/
-}
+  background-color: black;
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 1%;
+  right: 1%;
+  display: none;
+  /*animation: go 3s infinite;*/ }
 
-@keyframes go {
-	0% {left: 1%;right: 1%; background-color: red}
-	100% {left: 50%;right: 50%; background-color: black}
-}
+/*# sourceMappingURL=style.css.map */

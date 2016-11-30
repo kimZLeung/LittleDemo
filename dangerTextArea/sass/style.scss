@@ -1,0 +1,67 @@
+@mixin time {
+  font-size: 3em;
+	right: 5%;
+}
+
+@function double($num) {
+  @return $num * 2;
+}
+
+.dangerText {
+	width: 60%;
+	margin: 10px 15%;
+	height: double(300px);
+	resize: none;
+	font-size: 2em;
+	border: dashed;
+	border-color: transparent;
+	outline: none;
+	padding: 10px 100px;
+	overflow-y: auto;
+  &:hover {
+    border-radius: 10%;
+  	border: dashed;
+  }
+}
+
+.title {
+	color: #9c2323;
+	text-align: center;
+	background-color: transparent
+}
+
+.big {
+	/*transform: scale(2);*/
+	position: absolute;
+	color: red;
+	@include time;
+}
+
+.small {
+	/*transform: scale(1);*/
+	color: black;
+	position: absolute;
+  @include time;
+}
+
+.all {
+	border: 0px dashed black;
+	padding: 1px;
+	width: 6%;
+	height: 10px;
+	display: inline-block;
+	position: absolute;
+	right: 3%;
+	top: 120px;
+}
+
+.process {
+	background-color: black;
+	position: absolute;
+	top: 10%;
+	bottom: 10%;
+	left: 1%;
+	right: 1%;
+	display: none;
+	/*animation: go 3s infinite;*/
+}

@@ -21545,7 +21545,6 @@
 	        // this.clearTime(timeSet);
 	        // console.log(this.state.score)
 	        if (this.state.score >= 50) {
-	          // curNum = this.state.score
 	          this.setState({
 	            score: ++curNum,
 	            bang: true,
@@ -21558,6 +21557,12 @@
 	            time: true
 	          });
 	        }
+	        if (curNum % 10 == 0) {
+	          // TODO
+	          //
+	          //
+	        }
+	        console.log(this.state);
 	      }
 	      this.timeout = setTimeout(function () {
 	        text.value = '';
@@ -21633,7 +21638,7 @@
 	    key: 'timeSet',
 	    value: function timeSet(num) {
 	      var self = this;
-	      console.log(this.time.style);
+	      // console.log(this.time.style)
 	      if (this.timeout) {
 	        clearTimeout(this.timeout);
 	      }
@@ -21644,8 +21649,6 @@
 	          self.time.style.backgroundColor = '#' + num / 2;
 	          self.timeSet(num + 50);
 	        }, 50);
-	      } else {
-	        //
 	      }
 	    }
 	  }, {
@@ -21662,16 +21665,11 @@
 	    value: function componentWillUpdate(nextP, nextS) {
 	      var style = this.time.style;
 	      if (!nextP.title) {
-	        // this.time.style.right = '1%'\
 	        this.clear();
 	        style.display = 'none';
 	      } else {
-	        // if(!this.started) {
 	        this.timeSet(0);
 	        style.display = 'inline-block';
-	        // } else {
-	        //   this.clear()
-	        // }
 	      }
 	      // console.log(this.time)
 	    }
