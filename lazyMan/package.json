@@ -1,0 +1,11 @@
+{
+  "name": "lazykim",
+  "version": "1.0.0",
+  "description": "lazy",
+  "main": "test",
+  "scripts": {
+    "start": "node test"
+  },
+  "author": "kimz",
+  "license": "ISC"
+}
